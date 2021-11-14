@@ -1,7 +1,7 @@
 # Udemy Nodejs
 
-- Author: Peter Cole
-- Date: 11.13.2021
+**Author** Peter Cole  
+**Date** 11.13.2021
 
 ## Overview
 
