@@ -28,4 +28,4 @@
 
 - require http and set to a const
 - use http's createServer method to return a Server object, save to a const
-- use Server's listen method to listen for a local port
+- use Server's listen method to listen for a request to a local port
