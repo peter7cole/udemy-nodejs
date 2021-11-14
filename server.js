@@ -1,10 +1,19 @@
-// seaches for core module named http, and declares it to a custom constant name, best practice to call it the same thing
+// searches for a core module named http, and declares it to a custom constant name, best practice to call it the same thing
 const http = require('http');
 
-// since reqListener is in the argument list for createServer, this function's contents will run for every incoming 'request' event
+/*
+ * since reqListener is in the argument list for createServer, this function's contents will run for every incoming 'request' event
+ * we could stop the server here with `process.exit();` inside the listener, hard exiting the node event loop
+ */
 function reqListener(req, res) {
-  console.log('req', req);
-  // we could stop the server here with process.exit(), hard exiting the node event loop;
+  console.log(req.url, req.method, req.headers);
+
+  // this sets the key and value of a new header which is attached to the response
+  res.setHeader('Content-Type', 'text/html');
+  // write some data to the response, the headers in this case indicate that it should be in html
+  res.write('<html><body><h1>hello world!!!</h1></body></html>');
+  // lastly, let the response know that it is done, no more changing the response after this, else error
+  res.end();
 }
 
 /*

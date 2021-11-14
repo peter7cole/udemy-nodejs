@@ -4,23 +4,23 @@
 
 ## Core Modules (some of them)
 
-### http
+### _http_
 
 - launch a server, send requests
 
-### https
+### _https_
 
 - launch an SSL server
 
-### fs
+### _fs_
 
 - file manipulation
 
-### path
+### _path_
 
 - construct paths to files on a file system that work across all operating systems
 
-### os
+### _os_
 
 - assists with operating system relevant information
 
@@ -30,6 +30,29 @@
 - use http's createServer method to return a Server object, save to a const
 - use Server's listen method to listen for a request to a local port
 
+## Request
+
+- check out keys on the request such as
+  - url, method, headers
+
+## Response
+
+### Headers
+
+- on both requests and responses, http headers are added to transport metadata
+- attach a header with `res.setHeader(<key>, <value>);`
+- [list of supported headers](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)
+- [more reading on headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
+- default headers set by the browser include
+  - connection, date, keep-alive, transfer-encoding
+
 ## Lifecycle
 
 ![Nodejs Program Lifecycle](/assets/nodejs_program_lifecycle.png)
+
+### Single Threaded
+
+- this node application event loop operates by executing single threaded javascript
+- the node process uses one thread on the computer it is running on
+- super fast handling, as long as there is not too much CPU intensive server-side work
+- break event loop with `process.exit()`
