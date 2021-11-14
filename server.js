@@ -4,6 +4,7 @@ const http = require('http');
 // since reqListener is in the argument list for createServer, this function's contents will run for every incoming 'request' event
 function reqListener(req, res) {
   console.log('req', req);
+  // we could stop the server here with process.exit(), hard exiting the node event loop;
 }
 
 /*
