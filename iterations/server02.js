@@ -41,11 +41,12 @@ const server = http.createServer((req, res) => {
       // toString() is a utility method offered by Node.js to do work on Buffered chunks
       // in this case we're assuming the body will all be text
       const parsedBody = Buffer.concat(body).toString();
-      console.log('PARSED BODY:', parsedBody);
+      const message = parsedBody.split('=')[1];
+      // use the filesystem module to write a file named `message.txt` to the root project folder containing dummy text
+      // the fs.writeFileSync() is a synchronous method that creates a new file if the specified file does not exist
+      fs.writeFileSync('message.txt', message);
     });
-    // use the filesystem module to write a file named `message.txt` to the root project folder containing dummy text
-    // the fs.writeFileSync() is a synchronous method that creates a new file if the specified file does not exist
-    fs.writeFileSync('message.txt', 'foo');
+
     // set status code to redirected
     res.statusCode = 302;
     // set header to default `Location` of `/`
