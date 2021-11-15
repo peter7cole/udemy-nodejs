@@ -2,6 +2,13 @@ const http = require('http');
 const fs = require('fs');
 const { formPage, helloPage } = require('./pages');
 
+/*
+ * iteration server03 is refactored server02 with no great change in functionality
+ * - pages are now imported
+ * - the `end` event listener is now returned to keep the synchronous code working
+ * - otherwise, headers would be attempting to be re-set after the conditionals
+ */
+
 const server = http.createServer((req, res) => {
   const { url, method } = req;
 
