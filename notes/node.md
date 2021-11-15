@@ -56,3 +56,7 @@
 - the node process uses one thread on the computer it is running on
 - super fast handling, as long as there is not too much CPU intensive server-side work
 - break event loop with `process.exit()`
+
+## Streams & Buffers
+
+![Streams & Buffers](/assets/streams_and_buffers.png)
