@@ -12,7 +12,8 @@ const formPage =
  * - post method forms will look into the form for any related input, select, etc elements and
  *
  * Inputs
- * - types: button, checkbox, color, date, datetime-local, email, file, hidden, image, month, number, password, radio, range, reset, search, submit, tel, text, time, url, week
+ * - types: button, checkbox, color, date, datetime-local, email, file, hidden, image,
+ *          month, number, password, radio, range, reset, search, submit, tel, text, time, url, week
  * - name: automatically adds input data to the request and makes it accessible via the assigned name, in this case `message`
  */
 
