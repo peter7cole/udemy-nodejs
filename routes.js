@@ -36,4 +36,4 @@ const handleRequests = (req, res) => {
   res.end();
 };
 
-module.exports = handleRequests;
+module.exports = { handleRequests };
