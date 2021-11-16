@@ -1,40 +1,8 @@
 const http = require('http');
-const fs = require('fs');
-const { formPage, helloPage } = require('./pages');
+const routes = require('./routes');
 
-const server = http.createServer((req, res) => {
-  const { url, method } = req;
+const server = http.createServer(routes);
 
-  if (url === '/') {
-    res.setHeader('Content-Type', 'text/html');
-    res.write(formPage);
-
-    return res.end();
-  }
-
-  if (url === '/message' && method === 'POST') {
-    const body = [];
-
-    req.on('data', (chunk) => {
-      body.push(chunk);
-    });
-
-    return req.on('end', () => {
-      const parsedBody = Buffer.concat(body).toString();
-      console.log('parsedBody:', parsedBody);
-
-      const message = parsedBody.split('=')[1];
-      fs.writeFile('message.txt', message, (err) => {
-        res.statusCode = 302;
-        res.setHeader('Location', '/');
-        return res.end();
-      });
-    });
-  }
-
-  res.setHeader('Content-Type', 'text/html');
-  res.write(helloPage);
-  res.end();
+server.listen(4000, () => {
+  console.log('Listening on port 4000');
 });
-
-server.listen(4000);

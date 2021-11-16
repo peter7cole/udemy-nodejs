@@ -56,7 +56,14 @@
 - the node process uses one thread on the computer it is running on
 - super fast handling, as long as there is not too much CPU intensive server-side work
 - break event loop with `process.exit()`
+- event loop should generally be handling event callbacks, ideally fast running code
 
-## Streams & Buffers
+![Single Thread, Event Loop, & Blocking Code](/assets/single_thread_event_loop_blocking_code.png)
+
+### Event Loop
+
+![Event Loop](/assets/event_loop.png)
+
+### Streams & Buffers
 
 ![Streams & Buffers](/assets/streams_and_buffers.png)
