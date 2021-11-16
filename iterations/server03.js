@@ -7,6 +7,7 @@ const { formPage, helloPage } = require('./pages');
  * - pages are now imported
  * - the `end` event listener is now returned to keep the synchronous code working
  * - otherwise, headers would be attempting to be re-set after the conditionals
+ * - the writeFileSync method is abandoned for writeFile, explained in comments below
  */
 
 const server = http.createServer((req, res) => {
@@ -31,12 +32,14 @@ const server = http.createServer((req, res) => {
       console.log('parsedBody:', parsedBody);
 
       const message = parsedBody.split('=')[1];
-      fs.writeFileSync('message.txt', message);
-
-      res.statusCode = 302;
-      res.setHeader('Location', '/');
-
-      return res.end();
+      // the dangers of using writeFileSync is that if it's a large file(couple hundred MBs), it will block code execution, the handling of other requests
+      // so we swap it out here for writeFile, it does take an optional err argument, but we don't anticipate errors for this particular code
+      fs.writeFile('message.txt', message, (err) => {
+        res.statusCode = 302;
+        res.setHeader('Location', '/');
+        return res.end();
+        // example of event driven architecture
+      });
     });
   }
 
