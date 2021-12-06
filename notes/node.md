@@ -1,5 +1,14 @@
 # Node
 
+## Overview
+
+- Extends Javascript, built on top of it to allow JS to run outside of the browser, for example on a server
+- Node.js uses V8 to compile JS to machine code
+  > V8 is Google’s open source high-performance JavaScript and WebAssembly engine, written in C++. It is used in Chrome and in Node.js, among others.
+  >
+  > V8 compiles and executes JavaScript source code, handles memory allocation for objects, and garbage collects objects it no longer needs. _https://v8.dev/docs_
+-
+-
 - event driven architecture
 
 ## Core Modules (some of them)
