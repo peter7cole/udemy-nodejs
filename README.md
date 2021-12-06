@@ -11,6 +11,6 @@
 
 ## Notes
 
-- [/iterations](/iterations) for annotated progressions of the `server.js` file
+- /[iterations](/iterations) for annotated progressions of the `server.js` file
 - [How the Web Works](/notes/how_the_web_works.md)
 - [Node](/notes/node.md)
