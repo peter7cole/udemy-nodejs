@@ -1,8 +1,17 @@
-const http = require('http');
-const { handleRequests } = require('./routes');
+const express = require('express');
+const app = express();
+require('dotenv').config();
+const PORT = process.env.PORT;
 
-const server = http.createServer(handleRequests);
+app.use((req, res, next) => {
+  console.log('I am middleware');
+  next(); // allows request to continue to the next middleware in line
+});
+app.use((req, res, next) => {
+  console.log('I am more middleware');
+  res.send('<h1>Hello from express</h1>');
+});
 
-server.listen(4000, () => {
-  console.log('Listening on port 4000');
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
 });
